@@ -9,6 +9,10 @@ class Bgg
   URL = "http://www.boardgamegeek.com/xmlapi2/%s"
   TYPES = %w(boardgame boardgameexpansion)
 
+  def initialize(debug = false)
+    @debug = debug
+  end
+
   def self.search(term)
     res = Bgg.new.search(term)
     res['items']['item']
@@ -36,7 +40,7 @@ class Bgg
   end
 
   def log(msg)
-    puts "-- #{msg}"
+    puts "-- #{msg}" if @debug
   end
 
   def get_raw(resource, params = {})
