@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="gameApp">
+<head>
+  <meta charset="utf-8">
+  <title>Gameshelf</title>
+  <link rel="stylesheet" href="app.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+  <script src="controllers.js"></script>
+</head>
+<body ng-controller="GameListCtrl">
+
+  <div class="container shelf">
+
+    <div class="article effect6" ng-repeat="game in games | filter:query | orderBy:orderProp">
+      <div class="caption">{{game.name}}</div>
+      <img class="cover" title="{{game.name}}" ng-src="{{game.image}}">
+    </div>
+
+  </div>
+
+</body>
+</html>
