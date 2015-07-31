@@ -16,16 +16,6 @@ class Bgg
     @debug = debug
   end
 
-  def self.search(term)
-    res = Bgg.new.search(term)
-    res['items']['item']
-  end
-
-  def self.find(*ids)
-    res = Bgg.new.find(ids)
-    res['items']
-  end
-
   def get_collection(username)
     retry_count = 0
     begin
@@ -43,11 +33,13 @@ class Bgg
   end
 
   def search(term)
-    get(:search, query: term, type: TYPES.join(','))
+    res = get(:search, query: term, type: TYPES.join(','))
+    res['items']['item']
   end
 
   def find(*ids)
-    get(:thing, id: ids.flatten.join(','), type: TYPES.join(','))
+    res = get(:thing, id: ids.flatten.join(','), type: TYPES.join(','))
+    res['items']['item']
   end
 
   protected
