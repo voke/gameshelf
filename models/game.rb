@@ -16,9 +16,13 @@ class Game
 
   has n, :items
   has n, :users, through: :items
-    
+  
   # TODO: Find a way to skip callback
   # after :create, :enqueue_get_metadata
+
+  def metadata?
+    ![title, min_players, max_players, duration, year_published, image_url].any?(&:blank?)
+  end
 
   def enqueue_get_metadata
     GetMetadataJob.new.async.perform(self.id)
