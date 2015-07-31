@@ -14,6 +14,9 @@ class Game
   property :expansion,      Boolean
   property :image_url,      String
 
+  has n, :items
+  has n, :users, through: :items
+    
   # TODO: Find a way to skip callback
   # after :create, :enqueue_get_metadata
 
