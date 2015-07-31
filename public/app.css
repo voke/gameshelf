@@ -1,3 +1,39 @@
-body {
-  background: #1f57a1;
+.shelf {
+
+  margin-right: auto;
+  margin-left: auto;
+  width: 920px;
+
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.caption {
+  background-color: rgba(0,0,0,0.65);
+  position: absolute;
+  padding: 7px;
+  text-indent: 20px;
+  width: 100%;
+  font-size: 12px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  color: #FFF;
+  bottom: 0px;
+  z-index: 1;
+}
+
+.article {
+  background: green;
+  flex: 1 1 auto;
+  max-height: 300px;
+  overflow: hidden;
+  margin: 10px;
+  display: flex;
+  position: relative;
+}
+
+.cover {
+  max-height: inherit;
+  flex: 1 0 auto;
+  border-radius: 4px 4px 0 0;
 }

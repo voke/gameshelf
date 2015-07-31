@@ -9,9 +9,9 @@
 </head>
 <body ng-controller="GameListCtrl">
 
-  <div class="container shelf">
+  <div class="shelf">
 
-    <div class="article effect6" ng-repeat="game in games | filter:query | orderBy:orderProp">
+    <div class="article" ng-repeat="game in games | filter:query | orderBy:orderProp">
       <div class="caption">{{game.title}}</div>
       <img class="cover" width="200" title="{{game.title}}" ng-src="{{game.image_url}}">
     </div>
