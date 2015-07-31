@@ -1,4 +1,7 @@
+require_relative '../jobs/get_metadata_job'
+
 class Game
+
   include DataMapper::Resource
 
   property :id,             Serial
@@ -10,4 +13,11 @@ class Game
   property :year_published, Integer
   property :expansion,      Boolean
   property :image_url,      String
+
+  after :create, :enqueue_get_metadata
+
+  def enqueue_get_metadata
+    GetMetadataJob.new.async.perform(self.id)
+  end
+
 end
