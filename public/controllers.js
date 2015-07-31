@@ -2,11 +2,19 @@
 
 var gameApp = angular.module('gameApp', []);
 
-gameApp.controller('GameListCtrl', function($scope, $http) {
+gameApp.controller('GameListCtrl', ['$scope', '$http',
+  function($scope, $http) {
 
-  $http.get('api/v1/games').success(function(data) {
-    $scope.games = data;
-  });
+    var path = window.location.pathname;
+    var username = path.slice(1, path.length);
+    var url = 'api/v1/games?username=' + username;
 
-  $scope.orderProp = 'year';
-});
+    $http.get(url).success(function(data) {
+      $scope.games = data;
+    }).error(function(error) {
+      console.log('error');
+    })
+
+    $scope.orderProp = 'year';
+
+  }]);
