@@ -2,13 +2,10 @@ class API < Grape::API
 
   version 'v1'
   prefix :api
+  format :json
 
   get :games do
-    {
-      'game' => {
-        'name' => 'lol'
-      }
-    }
+    @games = Game.all
   end
 
 end
