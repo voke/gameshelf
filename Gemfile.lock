@@ -71,6 +71,7 @@ GEM
     do_sqlite3 (0.10.16)
       data_objects (= 0.10.16)
     equalizer (0.0.11)
+    excon (0.45.4)
     fastercsv (1.5.5)
     grape (0.12.0)
       activesupport
@@ -122,6 +123,7 @@ DEPENDENCIES
   crack
   data_mapper
   dm-sqlite-adapter
+  excon
   grape
   puma
   sinatra

@@ -1,4 +1,4 @@
-require 'open-uri'
+require 'excon'
 require 'crack'
 require 'json'
 
@@ -39,10 +39,19 @@ class Bgg
     puts "-- #{msg}"
   end
 
-  def get(resource, params = {})
+  def get_raw(resource, params = {})
     uri = endpoint(resource, params)
-    response = open(uri)
-    Crack::XML.parse(response.read)
+    log("GET: #{uri}")
+    response = Excon.get(uri)
+  end
+
+  def parse(body)
+    Crack::XML.parse(body)
+  end
+
+  def get(resource, params = {})
+    response = get_raw(resource, params)
+    parse(response.body)
   end
 
 end
