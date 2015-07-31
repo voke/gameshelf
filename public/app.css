@@ -1,3 +1,7 @@
+body {
+   background: #2574b0 url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpi/P//PwMFQIpx1IBRA0YNGEQGSFFiAkCAAQAdfjGB1E2FlAAAAABJRU5ErkJggg==');
+ }
+
 .shelf {
 
   margin-right: auto;
