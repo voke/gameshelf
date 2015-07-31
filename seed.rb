@@ -16,10 +16,10 @@ games.each do |game|
   Game.first_or_create({ bgg_id: game['id'] }, {
     image_url: game['image'],
     title: name,
-    year_published: game['yearpublished'],
+    year_published: game['yearpublished']['value'],
     expansion: (game['type'] == 'boardgameexpansion'),
     min_players: game['minplayers']['value'],
     max_players: game['maxplayers']['value'],
-    duration: game['playingtime']['value'],
+    duration: game['playingtime']['value']
   })
 end
