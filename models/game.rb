@@ -14,7 +14,8 @@ class Game
   property :expansion,      Boolean
   property :image_url,      String
 
-  after :create, :enqueue_get_metadata
+  # TODO: Find a way to skip callback
+  # after :create, :enqueue_get_metadata
 
   def enqueue_get_metadata
     GetMetadataJob.new.async.perform(self.id)
