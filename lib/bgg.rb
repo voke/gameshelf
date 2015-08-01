@@ -40,8 +40,12 @@ class Bgg
   def find(*ids)
     ids = ids.flatten
     res = get(:thing, id: ids.join(','), type: TYPES.join(','))
-    res['items']['item']
-    # todo: add mismatch error if ids is not the same size as response items
+    data = res['items']['item']
+    if data.is_a?(Array) && data.size != ids.size
+      raise "Couldn't find all records. Found #{data.size} but was looking for #{ids.size}"
+    else
+      data
+    end
   end
 
   protected
