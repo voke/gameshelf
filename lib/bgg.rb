@@ -38,8 +38,10 @@ class Bgg
   end
 
   def find(*ids)
-    res = get(:thing, id: ids.flatten.join(','), type: TYPES.join(','))
+    ids = ids.flatten
+    res = get(:thing, id: ids.join(','), type: TYPES.join(','))
     res['items']['item']
+    # todo: add mismatch error if ids is not the same size as response items
   end
 
   protected
